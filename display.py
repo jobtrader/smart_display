@@ -7,8 +7,7 @@ options = webdriver.ChromeOptions()
 # options.add_argument("--kiosk")
 # options.add_experimental_option("detach", True)
 url = "http://" + display_setting['ip'] + ":" + display_setting['port'] + "/showcredential?"
-driver_path = r".\Chromedriver\chromedriver.exe"
-driver = webdriver.Chrome(executable_path=driver_path, options=options)
+driver = webdriver.Chrome(options=options)
 
 
 def concat_argument(kwargs):
@@ -23,5 +22,5 @@ def show_credential(kwargs):
     try:
         driver.get(concat_argument(kwargs))
     except:
-        driver = webdriver.Chrome(executable_path=driver_path, options=options)
+        driver = webdriver.Chrome(options=options)
         driver.get(concat_argument(kwargs))
